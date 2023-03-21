@@ -22,9 +22,9 @@ export default function Board() {
   }
 
   function changeTurn() {
-    setMoves(moves + 1);
+    setMoves((moves) => moves + 1);
     if (moves < 8) {
-      setTurn(turn === "X" ? "O" : "X");
+      setTurn((turn) => (turn === "X" ? "O" : "X"));
       return;
     }
 
