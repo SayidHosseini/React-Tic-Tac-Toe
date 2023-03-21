@@ -43,15 +43,17 @@ export default function Board() {
     }
   }
 
-  const play = (rIndex, cIndex) => () => {
-    if (gameOver || board[rIndex][cIndex] !== "") return;
+  function play(rIndex, cIndex) {
+    return () => {
+      if (gameOver || board[rIndex][cIndex] !== "") return;
 
-    changeTurn();
-    let newBoard = board;
-    newBoard[rIndex][cIndex] = turn;
-    setBoard(newBoard);
-    gameOverCheck();
-  };
+      changeTurn();
+      let newBoard = board;
+      newBoard[rIndex][cIndex] = turn;
+      setBoard(newBoard);
+      gameOverCheck();
+    };
+  }
 
   const boardCells = board.map((row, rIndex) => (
     <tr key={rIndex}>
